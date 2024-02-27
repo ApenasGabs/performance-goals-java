@@ -5,6 +5,15 @@ public abstract class Coffee {
   private String origin;
   private String roastType;
   private String flavorProfile;
+  private int coffeeId;
+
+  public int getCoffeeId() {
+    return this.coffeeId;
+  }
+
+  public void setCoffeeId(int coffeeId) {
+    this.coffeeId = coffeeId;
+  }
 
   public String getName() {
     return this.name;
