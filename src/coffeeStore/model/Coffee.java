@@ -1,6 +1,6 @@
 package coffeeStore.model;
 
-public class Coffee {
+public abstract class Coffee {
   private String name;
   private String origin;
   private String roastType;
