@@ -11,8 +11,8 @@ public interface CoffeeCRUD {
 
   List<Coffee> getAllCoffees();
 
-  void updateCoffee(int id, Coffee coffee);
+  void updateCoffee(String id, Coffee coffee);
 
-  void deleteCoffee(int id);
+  void deleteCoffee(String id);
 
 }
