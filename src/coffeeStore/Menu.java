@@ -3,6 +3,7 @@ package coffeeStore;
 import java.util.Scanner;
 
 import coffeeStore.controller.CoffeeController;
+import coffeeStore.model.Coffee;
 
 public class Menu {
 
@@ -32,11 +33,21 @@ public class Menu {
 	}
 
 	private static void showAllCoffees() {
-		System.out.println("======== Oops, type a valid option ==========");
+		System.out.println("Listing all coffees:");
+		var coffees = storeActions.getAllCoffees();
+		coffees.forEach(coffee -> coffee.showCoffeeDetails());
 	}
 
 	private static void showCoffeeById() {
-		System.out.println("======== Oops, type a valid option ==========");
+		System.out.println("Please enter Coffee ID:");
+		String id = inputValues.nextLine();
+		Coffee coffee = storeActions.getCoffeeById(id);
+
+		if (coffee != null) {
+			coffee.showCoffeeDetails();
+		} else {
+			System.out.println("Coffee not found.");
+		}
 	}
 
 	private static void addNewCoffee() {
@@ -48,7 +59,9 @@ public class Menu {
 	}
 
 	private static void deleteCoffee() {
-		System.out.println("======== Oops, type a valid option ==========");
+		System.out.println("Enter Coffee ID to delete:");
+		String id = inputValues.nextLine();
+		storeActions.deleteCoffee(id);
 	}
 
 	private static void showMenu() {
