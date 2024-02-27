@@ -2,30 +2,53 @@ package coffeeStore;
 
 import java.util.Scanner;
 
+import coffeeStore.controller.CoffeeController;
+
 public class Menu {
 
 	public static Scanner inputValues = new Scanner(System.in);
+	public static CoffeeController storeActions = new CoffeeController();
 
 	public static void main(String[] args) {
 		showMenu();
 		switch (inputValues.nextLine()) {
-			case "1" -> System.out.println("========== 1 Show all products =============");
-			case "2" -> System.out.println("========== 2 Search by product Id ==========");
-			case "3" -> System.out.println("========== 3 Add products ==================");
-			case "4" -> System.out.println("========== 4 Update product ================");
-			case "5" -> System.out.println("========== 5 Delete product ================");
-			case "0" ->	exit();
+			case "1" -> showAllCoffees();
+			case "2" -> showCoffeeById();
+			case "3" -> addNewCoffee();
+			case "4" -> updateCoffee();
+			case "5" -> deleteCoffee();
+			case "0" -> exit();
 			default -> showInvalidOptionMessage();
 		}
 		inputValues.close();
 	}
 
-
 	private static void showInvalidOptionMessage() {
 		System.out.println("======== Oops, type a valid option ==========");
 	}
+
 	private static void exit() {
 		System.out.println("========== Exiting... ======================");
+	}
+
+	private static void showAllCoffees() {
+		System.out.println("======== Oops, type a valid option ==========");
+	}
+
+	private static void showCoffeeById() {
+		System.out.println("======== Oops, type a valid option ==========");
+	}
+
+	private static void addNewCoffee() {
+		System.out.println("======== Oops, type a valid option ==========");
+	}
+
+	private static void updateCoffee() {
+		System.out.println("======== Oops, type a valid option ==========");
+	}
+
+	private static void deleteCoffee() {
+		System.out.println("======== Oops, type a valid option ==========");
 	}
 
 	private static void showMenu() {
