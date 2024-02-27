@@ -8,7 +8,9 @@ import coffeeStore.model.CoffeeBean;
 import coffeeStore.model.GroundCoffee;
 
 public class CoffeeMenuActions {
-
+  private static void promptEnterKey() {
+    System.out.println("\nPress Enter key to return to the menu...");
+  }
   public static void showAllCoffees(CoffeeController storeActions) {
     System.out.println("Listing all coffees:");
     var coffees = storeActions.getAllCoffees();
@@ -17,6 +19,7 @@ public class CoffeeMenuActions {
     } else {
         coffees.forEach(coffee -> coffee.showCoffeeDetails());
     }
+    promptEnterKey();
   }
 
   public static void showCoffeeById(CoffeeController storeActions, Scanner inputValues) {
@@ -26,9 +29,8 @@ public class CoffeeMenuActions {
 
     if (coffee != null) {
       coffee.showCoffeeDetails();
-    } else {
-      System.out.println("Coffee not found.");
     }
+    promptEnterKey();
   }
 
   public static void addNewCoffee(CoffeeController storeActions, Scanner inputValues) {
@@ -81,6 +83,8 @@ public class CoffeeMenuActions {
     } else {
       System.out.println("Invalid coffee type selected.");
     }
+
+    promptEnterKey();
   }
 
   public static void updateCoffee(CoffeeController storeActions, Scanner inputValues) {
@@ -153,6 +157,8 @@ public class CoffeeMenuActions {
 
     storeActions.updateCoffee(coffeeId, coffee);
     System.out.println("Coffee updated successfully!");
+
+    promptEnterKey();
   }
 
   public static void deleteCoffee(CoffeeController storeActions, Scanner inputValues) {
@@ -160,6 +166,9 @@ public class CoffeeMenuActions {
     String id = inputValues.nextLine();
 
     storeActions.deleteCoffee(id);
+    System.out.println("Coffee deleted successfully!");
+
+    promptEnterKey();
   }
 
 }

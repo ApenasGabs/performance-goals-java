@@ -27,6 +27,8 @@ public class Menu {
 
 	private static void showInvalidOptionMessage() {
 		System.out.println("======== Oops, type a valid option ==========");
+    System.out.println("\nPress Enter key to return to the menu...");
+
 	}
 
 	private static void exit() {
