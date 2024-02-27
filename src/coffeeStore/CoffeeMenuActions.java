@@ -11,20 +11,24 @@ public class CoffeeMenuActions {
 
   public static void showAllCoffees(CoffeeController storeActions) {
     System.out.println("Listing all coffees:");
-		var coffees = storeActions.getAllCoffees();
-		coffees.forEach(coffee -> coffee.showCoffeeDetails());
+    var coffees = storeActions.getAllCoffees();
+    if (coffees.isEmpty()) {
+        System.out.println("No coffees available.");
+    } else {
+        coffees.forEach(coffee -> coffee.showCoffeeDetails());
+    }
   }
 
   public static void showCoffeeById(CoffeeController storeActions, Scanner inputValues) {
     System.out.println("Please enter Coffee ID:");
-		String id = inputValues.nextLine();
-		Coffee coffee = storeActions.getCoffeeById(id);
+    String id = inputValues.nextLine();
+    Coffee coffee = storeActions.getCoffeeById(id);
 
-		if (coffee != null) {
-			coffee.showCoffeeDetails();
-		} else {
-			System.out.println("Coffee not found.");
-		}
+    if (coffee != null) {
+      coffee.showCoffeeDetails();
+    } else {
+      System.out.println("Coffee not found.");
+    }
   }
 
   public static void addNewCoffee(CoffeeController storeActions, Scanner inputValues) {
@@ -90,25 +94,25 @@ public class CoffeeMenuActions {
       return;
     }
 
-    System.out.println("Enter new Coffee Name (leave blank to keep current):");
+    System.out.println("Enter new Coffee Name (leave blank to keep current: " + coffee.getName() + ")");
     String name = inputValues.nextLine();
 
-    System.out.println("Enter new Origin (leave blank to keep current):");
+    System.out.println("Enter new Origin (leave blank to keep current: " + coffee.getOrigin() + ")");
     String origin = inputValues.nextLine();
 
-    System.out.println("Enter new Roast Type (leave blank to keep current):");
+    System.out.println("Enter new Roast Type (leave blank to keep current:  " + coffee.getRoastType() + ")");
     String roastType = inputValues.nextLine();
 
-    System.out.println("Enter new Flavor Profile (leave blank to keep current):");
+    System.out.println("Enter new Flavor Profile (leave blank to keep current:  " + coffee.getFlavorProfile() + ")");
     String flavorProfile = inputValues.nextLine();
 
-    System.out.println("Enter new Preparation Process (leave blank to keep current):");
+    System.out.println("Enter new Preparation Process (leave blank to keep current:  " + coffee.getPreparationProcess() + ")");
     String preparationProcess = inputValues.nextLine();
 
-    System.out.println("Enter new Weight in Grams (0 to keep current):");
+    System.out.println("Enter new Weight in Grams (0 to keep current:  " + coffee.getWeightGrams() + ")");
     int weightGrams = Integer.parseInt(inputValues.nextLine());
 
-    System.out.println("Enter new Roast Date (YYYY-MM-DD, leave blank to keep current):");
+    System.out.println("Enter new Roast Date (YYYY-MM-DD, leave blank to keep current:  " + coffee.getRoastDate() + ")");
     String roastDate = inputValues.nextLine();
 
     if (!name.isBlank())
@@ -133,14 +137,14 @@ public class CoffeeMenuActions {
       coffee.setRoastDate(roastDate);
 
     if (coffee instanceof CoffeeBean) {
-      System.out.println("Enter new Bean Type (leave blank to keep current):");
+      System.out.println("Enter new Bean Type (leave blank to keep current:  " + ((CoffeeBean) coffee).getBeanType() + ")");
       String beanType = inputValues.nextLine();
 
       if (!beanType.isBlank())
         ((CoffeeBean) coffee).setBeanType(beanType);
 
     } else if (coffee instanceof GroundCoffee) {
-      System.out.println("Enter new Grind Size (leave blank to keep current):");
+      System.out.println("Enter new Grind Size (leave blank to keep current): " + ((GroundCoffee) coffee).getGrindSize()  + ")");
       String grindSize = inputValues.nextLine();
 
       if (!grindSize.isBlank())
@@ -153,9 +157,9 @@ public class CoffeeMenuActions {
 
   public static void deleteCoffee(CoffeeController storeActions, Scanner inputValues) {
     System.out.println("Enter Coffee ID to delete:");
-		String id = inputValues.nextLine();
+    String id = inputValues.nextLine();
 
-		storeActions.deleteCoffee(id);
+    storeActions.deleteCoffee(id);
   }
 
 }

@@ -21,8 +21,8 @@ public class Menu {
 				case "0" -> exit();
 				default -> showInvalidOptionMessage();
 			}
-			inputValues.close();
 		} while (inputValues.nextLine() != "0");
+		inputValues.close();
 	}
 
 	private static void showInvalidOptionMessage() {
@@ -42,7 +42,7 @@ public class Menu {
 		System.out.println("\n========== 3 - Add products ================");
 		System.out.println("\n========== 4 - Update product ==============");
 		System.out.println("\n========== 5 - Delete product ==============");
-		System.out.println("\n========== 0 - Exit========== ==============");
+		System.out.println("\n========== 0 - Exit ========================");
 		System.out.println("\n============================================");
 	}
 
