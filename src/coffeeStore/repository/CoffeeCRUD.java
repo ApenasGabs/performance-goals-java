@@ -7,12 +7,12 @@ public interface CoffeeCRUD {
 
   void addCoffee(Coffee coffee);
 
-  Coffee getCoffeeById(int id);
+  Coffee getCoffeeById(String id);
 
   List<Coffee> getAllCoffees();
 
-  void updateCoffee(int id, Coffee coffee);
+  void updateCoffee(String id, Coffee coffee);
 
-  void deleteCoffee(int id);
+  void deleteCoffee(String id);
 
 }

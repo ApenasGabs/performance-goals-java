@@ -1,10 +1,12 @@
 package coffeeStore.model;
 
 public class CoffeeBean extends Coffee {
-  private String beanType;  
+  private String beanType;
 
-  public CoffeeBean() {
-    super();
+  public CoffeeBean(String name, String origin, String roastType, String flavorProfile, String preparationProcess,
+      int weightGrams, String roastDate, String beanType) {
+    super(name, origin, roastType, flavorProfile, preparationProcess, weightGrams, roastDate);
+    this.beanType = beanType;
   }
 
   public String getBeanType() {
@@ -17,7 +19,7 @@ public class CoffeeBean extends Coffee {
 
   @Override
   public void showCoffeeDetails() {
-    super.showCoffeeDetails(); 
+    super.showCoffeeDetails();
     System.out.println("\n Bean Type: " + beanType);
   }
 }

@@ -5,6 +5,28 @@ public abstract class Coffee {
   private String origin;
   private String roastType;
   private String flavorProfile;
+  private static int lastId = 0;
+  private final String coffeeId;
+
+  public Coffee(String name, String origin, String roastType, String flavorProfile, String preparationProcess,
+      int weightGrams, String roastDate) {
+    this.name = name;
+    this.origin = origin;
+    this.roastType = roastType;
+    this.flavorProfile = flavorProfile;
+    this.preparationProcess = preparationProcess;
+    this.weightGrams = weightGrams;
+    this.roastDate = roastDate;
+    this.coffeeId = generateCoffeeId(); // Isto só funciona corretamente se o nome não for nulo
+  }
+
+  private String generateCoffeeId() {
+    return this.name + (++lastId);
+  }
+
+  public String getCoffeeId() {
+    return this.coffeeId;
+  }
 
   public String getName() {
     return this.name;
