@@ -11,11 +11,10 @@ public class CoffeeController implements CoffeeCRUD {
 
 	@Override
 	public void addCoffee(Coffee coffee) {
-		// TODO Auto-generated method stub
 	}
 
 	@Override
-	public Coffee getCoffeeById(int id) {
+	public Coffee getCoffeeById(String id) {
 		return coffees.stream()
 				.filter(coffee -> coffee.getCoffeeId() == id)
 				.findFirst()
