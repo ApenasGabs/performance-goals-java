@@ -13,17 +13,19 @@ public class Menu {
 	public static CoffeeController storeActions = new CoffeeController();
 
 	public static void main(String[] args) {
-		showMenu();
-		switch (inputValues.nextLine()) {
-			case "1" -> showAllCoffees();
-			case "2" -> showCoffeeById();
-			case "3" -> addNewCoffee();
-			case "4" -> updateCoffee();
-			case "5" -> deleteCoffee();
-			case "0" -> exit();
-			default -> showInvalidOptionMessage();
-		}
-		inputValues.close();
+		do {
+			showMenu();
+			switch (inputValues.nextLine()) {
+				case "1" -> showAllCoffees();
+				case "2" -> showCoffeeById();
+				case "3" -> addNewCoffee();
+				case "4" -> updateCoffee();
+				case "5" -> deleteCoffee();
+				case "0" -> exit();
+				default -> showInvalidOptionMessage();
+			}
+			inputValues.close();
+		} while (inputValues.nextLine() != "0");
 	}
 
 	private static void showInvalidOptionMessage() {
@@ -32,6 +34,7 @@ public class Menu {
 
 	private static void exit() {
 		System.out.println("========== Exiting... ======================");
+		System.exit(0);
 	}
 
 	private static void showAllCoffees() {
